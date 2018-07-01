@@ -1,0 +1,75 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1-101-g0f28b03d)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7faabe4032f0 .scope module, "full_add_n_bit_tb" "full_add_n_bit_tb" 2 4;
+ .timescale -9 -9;
+P_0x7faabe403900 .param/l "n" 0 2 6, +C4<00000000000000000000000000000100>;
+v0x7faabe41a7e0_0 .var "a", 3 0;
+v0x7faabe41a870_0 .var "b", 3 0;
+v0x7faabe41a900_0 .net "carry", 0 0, L_0x7faabe41aa80;  1 drivers
+v0x7faabe41a9d0_0 .net "sum", 3 0, L_0x7faabe41ab60;  1 drivers
+S_0x7faabe40a2b0 .scope module, "dut" "full_add_n_bit" 2 13, 3 1 0, S_0x7faabe4032f0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 4 "a"
+    .port_info 1 /INPUT 4 "b"
+    .port_info 2 /OUTPUT 4 "sum"
+    .port_info 3 /OUTPUT 1 "carry"
+P_0x7faabe4045c0 .param/l "n" 0 3 3, +C4<00000000000000000000000000000100>;
+L_0x10a603050 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7faabe40a410_0 .net *"_s10", 0 0, L_0x10a603050;  1 drivers
+v0x7faabe41a1e0_0 .net *"_s11", 4 0, L_0x7faabe41aee0;  1 drivers
+v0x7faabe41a280_0 .net *"_s3", 4 0, L_0x7faabe41ac80;  1 drivers
+L_0x10a603008 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7faabe41a310_0 .net *"_s6", 0 0, L_0x10a603008;  1 drivers
+v0x7faabe41a3a0_0 .net *"_s7", 4 0, L_0x7faabe41ada0;  1 drivers
+v0x7faabe41a470_0 .net "a", 3 0, v0x7faabe41a7e0_0;  1 drivers
+v0x7faabe41a520_0 .net "b", 3 0, v0x7faabe41a870_0;  1 drivers
+v0x7faabe41a5d0_0 .net "carry", 0 0, L_0x7faabe41aa80;  alias, 1 drivers
+v0x7faabe41a670_0 .net "sum", 3 0, L_0x7faabe41ab60;  alias, 1 drivers
+L_0x7faabe41aa80 .part L_0x7faabe41aee0, 4, 1;
+L_0x7faabe41ab60 .part L_0x7faabe41aee0, 0, 4;
+L_0x7faabe41ac80 .concat [ 4 1 0 0], v0x7faabe41a7e0_0, L_0x10a603008;
+L_0x7faabe41ada0 .concat [ 4 1 0 0], v0x7faabe41a870_0, L_0x10a603050;
+L_0x7faabe41aee0 .arith/sum 5, L_0x7faabe41ac80, L_0x7faabe41ada0;
+    .scope S_0x7faabe4032f0;
+T_0 ;
+    %vpi_call 2 22 "$dumpfile", "anthony.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000001, S_0x7faabe4032f0 {0 0 0};
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x7faabe41a7e0_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x7faabe41a870_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x7faabe41a7e0_0, 0, 4;
+T_0.0 ;
+    %load/vec4 v0x7faabe41a7e0_0;
+    %pad/u 32;
+    %cmpi/u 16, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %delay 10, 0;
+    %vpi_call 2 28 "$display", "done testing case A=%d", v0x7faabe41a7e0_0 {0 0 0};
+    %load/vec4 v0x7faabe41a7e0_0;
+    %addi 1, 0, 4;
+    %store/vec4 v0x7faabe41a7e0_0, 0, 4;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .thread T_0;
+    .scope S_0x7faabe4032f0;
+T_1 ;
+    %delay 1000, 0;
+    %vpi_call 2 32 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "full_add_n_bit_tb.v";
+    "./../hdl/full_add_n_bit.v";
