@@ -1,7 +1,8 @@
-module accumulator(clk, a, sum, v, c, reset_n);
+module accumulator(clk, a, a_reg, sum, v, c, reset_n);
 
   input [7:0] a;
   input clk, reset_n;
+  output [7:0] a_reg;
   output reg v, c; // v = overflow flag, c = carry flag
   output reg [7:0] sum;
 
@@ -10,7 +11,7 @@ module accumulator(clk, a, sum, v, c, reset_n);
   wire v_d, c_d; // d as in data to DFF
   reg [7:0] a_q; // q as in output of DFF
 
-  full_add_8_bit adder (.a(a), .b(sum), .c_in(1'b0), .sum(sum_d), .c_out(c_d));
+  full_add_8_bit adder (.a(a_q), .b(sum), .c_in(1'b0), .sum(sum_d), .c_out(c_d));
 
   always @ (posedge clk or negedge reset_n)
   begin
@@ -34,6 +35,7 @@ module accumulator(clk, a, sum, v, c, reset_n);
   end
 
   assign v_d = (!(a_q[7] & sum[7]) | (a_q[7] & sum[7])) & sum_d[7];
+  assign a_reg = a_q;
 
 
 
