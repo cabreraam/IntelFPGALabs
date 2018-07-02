@@ -11,30 +11,30 @@ module acc_top(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, CLOCK_50);
 	input CLOCK_50;
 	output [9:0] LEDR;
 	output [6:0] HEX0, HEX1, HEX2, HEX3;
-	
+
 	// internal signals
 	wire [7:0] a_in, a_reg_out, s; // input a and output s signals from accumulator
 	wire v, c, reset_n;//, clk; // overflow, carry, reset, and clk signals from/to accumultor
 	reg [25:0] clk_count;
 	reg clk;
-	
-	
+
+
 	char_7seg_hex A0 (.C(a_reg_out[3:0]), .Display(HEX0));
 	char_7seg_hex A1 (.C(a_reg_out[7:4]), .Display(HEX1));
 	char_7seg_hex S0 (.C(s[3:0]), .Display(HEX2));
 	char_7seg_hex S1 (.C(s[7:4]), .Display(HEX3));
-	
+
 	accumulator acc (.clk(clk), .a(a_in), .a_reg(a_reg_out), .sum(s), .v(v), .c(c), .reset_n(reset_n));
-	
+
 	always @ (negedge reset_n or posedge CLOCK_50)
 	begin
-	
+
 		if (!reset_n)
 		begin
 			clk <= 1'b0;
 			clk_count <= 26'b0;
 		end
-		
+
 		else
 		begin
 			if (clk_count == 26'b10111110101111000010000000)
@@ -47,9 +47,9 @@ module acc_top(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, CLOCK_50);
 				clk_count <= clk_count + 1'b1;
 			end
 		end
-		
+
 	end
-	
+
 	assign reset_n = KEY[0];
 	//assign clk = !KEY[1];
 	//assign clk = SW[8];
@@ -59,4 +59,4 @@ module acc_top(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, CLOCK_50);
 	assign LEDR[9] = v;
 
 
-endmodule 
+endmodule
