@@ -34,7 +34,10 @@ module accumulator(clk, a, a_reg, sum, v, c, reset_n);
 
   end
 
-  assign v_d = (!(a_q[7] & sum[7]) | (a_q[7] & sum[7])) & sum_d[7];
+  //assign v_d = (!(a_q[7] & sum[7]) | (a_q[7] & sum[7])) & sum_d[7];
+  // for overflow, either both adder operands were positive but the sum is
+  // negative, or both operands were negative but the sum is positive.
+  assign v_d = (a_q[7] & sum[7] & !sum_d[7]) | (!a_q[7] & !sum[7] & sum_d[7]);
   assign a_reg = a_q;
 
 
