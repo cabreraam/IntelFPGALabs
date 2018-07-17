@@ -1,0 +1,2 @@
+Easy to think about how the chain of adds work if you just do a[3:0] x b[0].
+Think about how that works, and then extend to b[1:0];
