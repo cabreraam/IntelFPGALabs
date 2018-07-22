@@ -1,5 +1,9 @@
 */*/hdl/*.bak
+
+#Quartus project files
 */*/synthesis/*
+
+# Simulation related files
 */*/simulation
 */*/testbenches/*.vcd
 */*/testbenches/*.vvp

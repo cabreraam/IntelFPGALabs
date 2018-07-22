@@ -40,19 +40,27 @@ module multiplier(a, b, p);
     full_add_1_bit r1c3 (.a(a3b0), .b(a2b1), .c_in(co_r1[1]), .sum(s_r1[2]),
         .c_out(co_r1[2]));
     full_add_1_bit r1c4 (.a(1'b0), .b(a3b1), .c_in(co_r1[2]), .sum(s_r1[3]),
-        .c_out(s_r1[3]));
+        .c_out(co_r1[3]));
 
-    full_add_1_bit r2c2 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c3 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c4 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c5 (.a(), .b(), .c_in(), .sum(), .c_out());
+    full_add_1_bit r2c2 (.a(s_r1[1]), .b(a0b2), .c_in(1'b0), .sum(s_r2[0]), 
+        .c_out(co_r2[0]));
+    full_add_1_bit r2c3 (.a(s_r1[2]), .b(a1b2), .c_in(co_r2[0]), .sum(s_r2[1]), 
+        .c_out(co_r2[1]));
+    full_add_1_bit r2c4 (.a(s_r1[3]), .b(a2b2), .c_in(co_r2[1]), .sum(s_r2[2]), 
+        .c_out(co_r2[2]));
+    full_add_1_bit r2c5 (.a(co_r1[3]), .b(a3b2), .c_in(co_r2[2]), .sum(s_r2[3]), 
+        .c_out(co_r2[3]));
 
-    full_add_1_bit r2c2 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c3 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c4 (.a(), .b(), .c_in(), .sum(), .c_out());
-    full_add_1_bit r2c5 (.a(), .b(), .c_in(), .sum(), .c_out());
+    full_add_1_bit r2c2 (.a(), .b(a0b3), .c_in(), .sum(), 
+        .c_out());
+    full_add_1_bit r2c3 (.a(), .b(a1b3), .c_in(), .sum(), 
+        .c_out());
+    full_add_1_bit r2c4 (.a(), .b(a2b3), .c_in(), .sum(), 
+        .c_out());
+    full_add_1_bit r2c5 (.a(), .b(a3b3), .c_in(), .sum(), 
+        .c_out());
 
     /* assign full adder internal signals to appropriate output signals */
 
 
-endmoudle
+endmodule
