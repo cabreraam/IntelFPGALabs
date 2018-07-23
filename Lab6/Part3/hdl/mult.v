@@ -1,6 +1,6 @@
 
 
-module multiplier(a, b, p);
+module mult(a, b, p);
 
     input [3:0] a, b;
     output [7:0] p;
@@ -36,30 +36,27 @@ module multiplier(a, b, p);
         .c_out(co_r2[3]));
 
     full_add_1_bit r3c2 (.a(s_r2[1]), .b(a0b3), .c_in(1'b0), .sum(s_r3[0]), 
-        .c_out(c0_r3[0]));
-    full_add_1_bit r3c3 (.a(s_r2[2]), .b(a1b3), .c_in(c0_r3[0]), .sum(s_r3[1]), 
-        .c_out(c0_r3[1]));
-    full_add_1_bit r3c4 (.a(s_r2[3]), .b(a2b3), .c_in(c0_r3[1]), .sum(s_r3[2]), 
-        .c_out(c0_r3[2]));
-    full_add_1_bit r3c5 (.a(co_r2[3]), .b(a3b3), .c_in(c0_r3[2]), .sum(s_r3[3]), 
-        .c_out(c0_r3[3]));
+        .c_out(co_r3[0]));
+    full_add_1_bit r3c3 (.a(s_r2[2]), .b(a1b3), .c_in(co_r3[0]), .sum(s_r3[1]), 
+        .c_out(co_r3[1]));
+    full_add_1_bit r3c4 (.a(s_r2[3]), .b(a2b3), .c_in(co_r3[1]), .sum(s_r3[2]), 
+        .c_out(co_r3[2]));
+    full_add_1_bit r3c5 (.a(co_r2[3]), .b(a3b3), .c_in(co_r3[2]), .sum(s_r3[3]), 
+        .c_out(co_r3[3]));
 
     /* assign full adder internal signals to appropriate output signals */
     /* comb. logic for all bitwise ANDs */
-    always @ (a or b)
-    begin
-        a0b0 <= a[0] & b[0]; a1b0 <= a[1] & b[0]; 
-        a2b0 <= a[2] & b[0]; a3b0 <= a[3] & b[0]; 
+    assign a0b0 = a[0] & b[0]; assign a1b0 = a[1] & b[0]; 
+    assign a2b0 = a[2] & b[0]; assign a3b0 = a[3] & b[0]; 
 
-        a0b1 <= a[0] & b[1]; a1b1 <= a[1] & b[1]; 
-        a2b1 <= a[2] & b[1]; a3b1 <= a[3] & b[1]; 
+    assign a0b1 = a[0] & b[1]; assign a1b1 = a[1] & b[1]; 
+    assign a2b1 = a[2] & b[1]; assign a3b1 = a[3] & b[1]; 
 
-        a0b2 <= a[0] & b[2]; a1b2 <= a[1] & b[2]; 
-        a2b2 <= a[2] & b[2]; a3b2 <= a[3] & b[2]; 
+    assign a0b2 = a[0] & b[2]; assign a1b2 = a[1] & b[2]; 
+    assign a2b2 = a[2] & b[2]; assign a3b2 = a[3] & b[2]; 
 
-        a0b3 <= a[0] & b[3]; a1b2 <= a[1] & b[3]; 
-        a2b3 <= a[2] & b[3]; a3b2 <= a[3] & b[3]; 
-    end
+    assign a0b3 = a[0] & b[3]; assign a1b3 = a[1] & b[3]; 
+    assign a2b3 = a[2] & b[3]; assign a3b3 = a[3] & b[3]; 
 
    /* comb. logic for output signals */
    assign p[0] = a0b0; 

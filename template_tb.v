@@ -12,8 +12,8 @@
 `timescale 1ns/1ns
 
 // Include all of the files that your testbench and its modules are dependent
-`include "../hdl/full_add_1_bit.v"
-`include "../hdl/mult.v"
+// on. e.g.
+`include "../hdl/acc_top.v"
 
 // By convention, I usually just name the module as the module under test and
 // append "_tb" to indicate that it's a testbench. e.g.
@@ -21,29 +21,37 @@ module mult_tb();
 
   // all of the input/output signals of the MUT (module under test) will be
   // defined as internal signals
-  reg [3:0] a, b;
-  wire [7:0] p;
+  reg clk, reset_n, a_sig;
+  reg [7:0] a;
+  wire v, c;
+  wire [7:0] a_reg;
+  wire [6:0] a0, a1, s0, s1;
 
   // instantiate MUT
-  mult top (.a(a), .b(b), .p(p));
+  acc_top top (.SW({a_sig, a}), .KEY({1'b0, reset_n}), .LEDR({v, c, a_reg}), .HEX0(a0),
+    .HEX1(a1), .HEX2(s0), .HEX3(s1), .CLOCK_50(clk));
 
-  // This is the logic that simulates a clock signal if module needs clock
-  /*always begin
+  // This is the logic that simulates a clock signal if your module requires
+  // clk
+  always begin
     clk = 1; #10; clk = 0; #10;
-  end*/
+  end
 
   // In this particular code, the testing of the module is implmented here.
   initial begin
 
     // name for the .vcd file to be fed to waveform viewer Scansion
-    $dumpfile("mult.vcd");
+    $dumpfile("acc_top.vcd");
     // signals of a given module that are wanted for view in Scansion
-    $dumpvars(0, mult_tb);
+    $dumpvars(0, acc_top_tb);
 
-    a = 4'b0; b = 4'b1010;
-    for (a=4'b0; a < 2**10; a=a + 1'b1)
+    a = 8'b0; reset_n = 1'b0; a_sig = 1'b0;
+    #3;
+    reset_n = 1'b1;
+    #2;
+    for (a=8'b1; a < 2**10; a=8'hFF)
     begin
-      #40; //$display("a=%d", a);
+      #15; //$display("a=%d", a);
     end
   end
 
@@ -52,5 +60,8 @@ module mult_tb();
     #4000 $finish;
   end
 
+  initial begin
+    #1920 a_sig = 1'b1;
+  end
 
 endmodule
