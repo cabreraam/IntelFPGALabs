@@ -1,4 +1,4 @@
-module mult_top(SW, HEX0, HEX2, HEX4, HEX5)
+module mult_top(SW, HEX0, HEX2, HEX4, HEX5);
 
     input [7:0] SW;
     output [6:0] HEX0, HEX2, HEX4, HEX5;
