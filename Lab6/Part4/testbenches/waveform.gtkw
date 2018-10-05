@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Thu Oct  4 22:29:55 2018
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab6/Part4/testbenches/full_add_n_bit.vcd"
+[dumpfile_mtime] "Thu Oct  4 22:28:31 2018"
+[dumpfile_size] 5483
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab6/Part4/testbenches/waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] 1083 102
+*-6.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] full_add_8_bit_tb.
+[sst_width] 225
+[signals_width] 102
+[sst_expanded] 1
+[sst_vpaned_height] 152
+@25
+full_add_8_bit_tb.a[7:0]
+full_add_8_bit_tb.b[7:0]
+@28
+full_add_8_bit_tb.carry_in
+full_add_8_bit_tb.carry_out
+@22
+full_add_8_bit_tb.sum[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
