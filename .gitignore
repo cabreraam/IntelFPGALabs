@@ -7,3 +7,5 @@
 */*/simulation
 */*/testbenches/*.vcd
 */*/testbenches/*.vvp
+*/*/testbenches/*/*.vcd
+*/*/testbenches/*/*.vvp

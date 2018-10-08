@@ -4,7 +4,7 @@
 //`include "../hdl/full_add_8_bit.v"
 `include "../hdl/full_add_n_bit.v"
 
-module full_add_8_bit_tb();
+module full_add_n_bit_tb();
 
   parameter n = 8;
 

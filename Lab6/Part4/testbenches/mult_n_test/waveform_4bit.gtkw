@@ -1,0 +1,90 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Mon Oct  8 22:22:13 2018
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab6/Part4/testbenches/mult_n_test/mult_4.vcd"
+[dumpfile_mtime] "Mon Oct  8 22:18:48 2018"
+[dumpfile_size] 26450
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab6/Part4/testbenches/mult_n_test/waveform_4bit.gtkw"
+[timestart] 431
+[size] 1694 989
+[pos] 0 164
+*-7.000000 494 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] mult_n_bit_tb.
+[treeopen] mult_n_bit_tb.dut.
+[treeopen] mult_n_bit_tb.dut.generated_adder[0].
+[treeopen] mult_n_bit_tb.dut.generated_adder[1].
+[sst_width] 225
+[signals_width] 259
+[sst_expanded] 1
+[sst_vpaned_height] 295
+@200
+-tb ins/outs
+@24
+mult_n_bit_tb.a[3:0]
+mult_n_bit_tb.b[3:0]
+mult_n_bit_tb.p[7:0]
+@200
+-dut
+@24
+mult_n_bit_tb.dut.a[3:0]
+mult_n_bit_tb.dut.b[3:0]
+@28
+mult_n_bit_tb.dut.c_out_vec[2:0]
+@24
+mult_n_bit_tb.dut.p[7:0]
+@800022
+mult_n_bit_tb.dut.sums[11:0]
+@1001200
+-group_end
+@200
+-first_adder
+@22
+mult_n_bit_tb.dut.first_adder.a[3:0]
+mult_n_bit_tb.dut.first_adder.b[3:0]
+mult_n_bit_tb.dut.a_and_b0[3:0]
+mult_n_bit_tb.dut.a_and_b1[3:0]
+@28
+mult_n_bit_tb.dut.first_adder.c_in
+mult_n_bit_tb.dut.first_adder.c_out
+@22
+mult_n_bit_tb.dut.first_adder.sum[3:0]
+@28
++{mult_n_bit_tb.dut.sums[3]} (8)mult_n_bit_tb.dut.sums[11:0]
+(9)mult_n_bit_tb.dut.sums[11:0]
+(10)mult_n_bit_tb.dut.sums[11:0]
+(11)mult_n_bit_tb.dut.sums[11:0]
+@200
+-gen_add_0
+@22
+mult_n_bit_tb.dut.generated_adder[0].device.a[3:0]
+mult_n_bit_tb.dut.generated_adder[0].device.b[3:0]
+mult_n_bit_tb.dut.generated_adder[0].a_and_b[3:0]
+@28
+mult_n_bit_tb.dut.generated_adder[0].device.c_in
+mult_n_bit_tb.dut.generated_adder[0].device.c_out
+@22
+mult_n_bit_tb.dut.generated_adder[0].device.sum[3:0]
+@28
+(4)mult_n_bit_tb.dut.sums[11:0]
+(5)mult_n_bit_tb.dut.sums[11:0]
+(6)mult_n_bit_tb.dut.sums[11:0]
+(7)mult_n_bit_tb.dut.sums[11:0]
+@200
+-gen_add_1
+@22
+mult_n_bit_tb.dut.generated_adder[1].device.a[3:0]
+mult_n_bit_tb.dut.generated_adder[1].device.b[3:0]
+mult_n_bit_tb.dut.generated_adder[1].a_and_b[3:0]
+@28
+mult_n_bit_tb.dut.generated_adder[1].device.c_in
+mult_n_bit_tb.dut.generated_adder[1].device.c_out
+@22
+mult_n_bit_tb.dut.generated_adder[1].device.sum[3:0]
+@29
+(0)mult_n_bit_tb.dut.sums[11:0]
+(1)mult_n_bit_tb.dut.sums[11:0]
+(2)mult_n_bit_tb.dut.sums[11:0]
+(3)mult_n_bit_tb.dut.sums[11:0]
+[pattern_trace] 1
+[pattern_trace] 0
