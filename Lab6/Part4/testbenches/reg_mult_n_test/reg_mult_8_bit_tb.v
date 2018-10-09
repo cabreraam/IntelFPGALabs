@@ -3,7 +3,7 @@
 
 module mult_n_bit_tb();
 
-  parameter n = 4;
+  parameter n = 8;
 
   //reg [n-1:0] a
   reg [n+1:0] a_i, b_i;
@@ -18,15 +18,15 @@ module mult_n_bit_tb();
 
   initial begin
 
-    $dumpfile("mult_4.vcd");
+    $dumpfile("mult_8.vcd");
     $dumpvars(0, mult_n_bit_tb);
 
-    a_i = 6'b0; b_i = 6'b0; 
-    a = 4'b0; b = 4'b0; 
+    //a_i = {n+1{1'b0}}; b_i = {n{1'b0}}; 
+    a = {n{1'b0}}; b = {n{1'b0}}; 
     #10; // 2ns
-    for (a_i=6'b0; a_i<6'b010000; a_i=a_i+1'b1)
+    for (a_i = {n+1{1'b0}}; a_i < {1'b1, {n{1'b0}}}; a_i=a_i+1'b1)
 	begin
-    	for (b_i=6'b0; b_i<6'b010000; b_i=b_i+1'b1)
+    	for (b_i={n+1{1'b0}}; b_i < {1'b1, {n{1'b0}}}; b_i=b_i+1'b1)
 		begin
 			b=b+1'b1;
 			#10;
@@ -38,7 +38,7 @@ module mult_n_bit_tb();
   end
 
   initial begin
-    #2760 $finish;
+    #100000 $finish;
   end
 
   initial begin

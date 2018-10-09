@@ -11,7 +11,6 @@ module mult_n #(parameter N = 4)
 	wire [N*(N-1)-1:0] sums;
 	wire [N-1:0] a_and_b0, a_and_b1, rep_b0;
 	wire [N-2:0] c_out_vec;
-	// TODO: any other internal signals?
 
 	// instantiate first adder, then generate the rest below
 	full_add_n_bit #(.N(N)) first_adder(
