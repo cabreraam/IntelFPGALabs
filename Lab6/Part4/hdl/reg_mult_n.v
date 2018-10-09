@@ -9,16 +9,16 @@ module reg_mult_n #(parameter N = 4)
 	input [N-1:0] a, b;
 	input clk, ea, eb, reset_n;
 
-	output reg [N-1:0] p;
+	output reg [N+N-1:0] p;
 
 	/* internal signals */
 	reg [N-1:0] reg_a, reg_b;
-	wire [N-1:0] mult_out;
+	wire [N+N-1:0] mult_out;
 
 	mult_n #(.N(N)) multiplier(
 		.a(reg_a),
 		.b(reg_b),
-		.p(mult_out).
+		.p(mult_out)
 	);
 
 	always @ (posedge clk)
