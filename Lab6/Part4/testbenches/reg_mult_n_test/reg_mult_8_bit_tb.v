@@ -45,11 +45,11 @@ module reg_mult_n_bit_tb();
 			for (b_i={n+1{1'b0}}; b_i < {1'b1, {n{1'b0}}}; b_i=b_i+1'b1)
 			begin
 				b=b+1'b1;
-				#10;
+				#20;
 			end
 			a=a+1'b1;
 			b=4'b0;
-			#10;
+			#20;
 		end
 	end
 
