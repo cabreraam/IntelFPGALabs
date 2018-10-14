@@ -1,4 +1,4 @@
-`include "full_add_n_bit.v"
+//`include "full_add_n_bit.v"
 
 module mult_n #(parameter N = 4)
 	(a, b, p);
@@ -23,7 +23,6 @@ module mult_n #(parameter N = 4)
 
 	genvar i;
 	generate
-	// TODO: take care of the 2nd adder, b3a3 input
 	for (i = 0; i < N-2; i = i+1)
 	begin : generated_adder 
 		wire [N-1:0] a_and_b;
