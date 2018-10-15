@@ -1,4 +1,3 @@
-//`include "full_add_n_bit.v"
 
 module mult_n #(parameter N = 4)
 	(a, b, p);
