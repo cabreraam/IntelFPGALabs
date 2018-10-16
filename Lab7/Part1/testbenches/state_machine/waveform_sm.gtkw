@@ -1,0 +1,58 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Tue Oct 16 18:19:46 2018
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part1/testbenches/state_machine/state_machine.vcd"
+[dumpfile_mtime] "Tue Oct 16 18:19:19 2018"
+[dumpfile_size] 99512
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part1/testbenches/state_machine/waveform_sm.gtkw"
+[timestart] 0
+[size] 1258 1388
+[pos] -1258 -10
+*-5.000000 136 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] state_machine_tb.
+[sst_width] 225
+[signals_width] 208
+[sst_expanded] 1
+[sst_vpaned_height] 437
+@200
+-tb ins/outs
+@28
+state_machine_tb.dut.clk
+state_machine_tb.dut.reset_n
+state_machine_tb.dut.w
+state_machine_tb.dut.z
+@200
+-tb internal sigs
+@c00024
+state_machine_tb.dut.next_state[8:0]
+@28
+(0)state_machine_tb.dut.next_state[8:0]
+(1)state_machine_tb.dut.next_state[8:0]
+(2)state_machine_tb.dut.next_state[8:0]
+(3)state_machine_tb.dut.next_state[8:0]
+(4)state_machine_tb.dut.next_state[8:0]
+(5)state_machine_tb.dut.next_state[8:0]
+(6)state_machine_tb.dut.next_state[8:0]
+(7)state_machine_tb.dut.next_state[8:0]
+(8)state_machine_tb.dut.next_state[8:0]
+@1401200
+-group_end
+@200
+-state reg
+@c00025
+state_machine_tb.dut.state[8:0]
+@29
+(0)state_machine_tb.dut.state[8:0]
+(1)state_machine_tb.dut.state[8:0]
+(2)state_machine_tb.dut.state[8:0]
+(3)state_machine_tb.dut.state[8:0]
+(4)state_machine_tb.dut.state[8:0]
+(5)state_machine_tb.dut.state[8:0]
+(6)state_machine_tb.dut.state[8:0]
+(7)state_machine_tb.dut.state[8:0]
+(8)state_machine_tb.dut.state[8:0]
+@1401205
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
