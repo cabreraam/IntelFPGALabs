@@ -10,6 +10,7 @@ module sm_top (	input 	[1:0]	KEY,
 								input		 			CLOCK_50,
 								output	[9:0] LEDR);
 
+	/* internal signals for unnecessary counter */
 	reg [25:0] count;
 	reg slow_clk;
 	wire slow_clk_out;
