@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
-`include "state_machine.v"
 `include "state_machine_with_output_state.v"
+`include "sm_top.v"
 
 module state_machine_tb();
 
@@ -9,16 +9,14 @@ module state_machine_tb();
 	reg clk, reset_n, w;
 	reg [3:0] i;
 
-	wire [8:0] state;
 	wire z;
+	wire [8:0] leds;
 
-	//state_machine dut (
-	state_machine_with_output_state dut (
-		.clk(clk),
-		.reset_n(reset_n),
-		.w(w),
-		.z(z),
-		.state_out(state)
+	sm_top dut (
+		.KEY(),
+		.CLOCK_50(clk),
+		.SW({w,reset_n}),
+		.LEDR({z,leds})
 	);
 
   // This is the logic that simulates a clock signal if your module requires
@@ -33,8 +31,9 @@ module state_machine_tb();
 		$dumpvars(0, state_machine_tb);
 
 		
-		reset_n = 1'b0; w = 1'b0; 
-		#35;
+		reset_n = 1'b0; w = 1'b0; ;
+		//#35;
+		#85;
 		reset_n = 1'b1; 
 
 

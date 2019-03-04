@@ -1,30 +1,25 @@
 `timescale 1ns/1ns
-`include "state_machine.v"
-`include "state_machine_with_output_state.v"
+`include "../../hdl/state_machine.v"
 
 module state_machine_tb();
 
-	parameter n = 8;
-
+	// DUT inputs
 	reg clk, reset_n, w;
-	reg [3:0] i;
-
-	wire [8:0] state;
+	// DUT outputs
+	wire [3:0] state_output;
 	wire z;
 
-	//state_machine dut (
-	state_machine_with_output_state dut (
+	state_machine dut (
 		.clk(clk),
 		.reset_n(reset_n),
 		.w(w),
 		.z(z),
-		.state_out(state)
+		.state_output(state_output)	
 	);
 
-  // This is the logic that simulates a clock signal if your module requires
-  // clk signal
+	// clock
 	always begin
-		clk = 1; #10; clk = 0; #10;
+		clk = 1; #10; clk = 0; #10; // 100MHz Clock	
 	end
 
 	initial begin
@@ -32,13 +27,11 @@ module state_machine_tb();
 		$dumpfile("state_machine.vcd");
 		$dumpvars(0, state_machine_tb);
 
-		
-		reset_n = 1'b0; w = 1'b0; 
-		#35;
-		reset_n = 1'b1; 
+		reset_n = 1'b0; w = 1'b0;
+		#15; 
+		reset_n = 1'b1;
+		#10;
 
-
-		#20; // 2ns
 
 		/* shift 4 1's in, then 0 */
 		/* A->F->G->H->I->A */
@@ -63,12 +56,6 @@ module state_machine_tb();
 
 		/* shift 1 1 in, then 0 */
 		/* A->F->A */
-		w = 1'b1;
-		#20;
-		w = 1'b0;
-		#20;
-
-		/* reset counter */
 		w = 1'b1;
 		#20;
 		w = 1'b0;
@@ -106,11 +93,6 @@ module state_machine_tb();
 
 initial begin
   #100000 $finish;
-end
-
-initial begin
-  //#50 b = 4'b0100;
-  //#50 b = 4'b0001;
 end
 
 endmodule

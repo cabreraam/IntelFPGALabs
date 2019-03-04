@@ -20,28 +20,45 @@ module state_machine(clk, reset_n, w, z);
 	always @ (posedge clk)
 	begin
 		if (~reset_n)
-			state <= 9'd1;
+			// state <= 9'd1; /* Question 2 */
+			state <= 9'd0; /* Question 6 */
 		else
 			state <= next_state;			
 	end
 
 	assign z = ~( | state[7:5] | state[3:0] ) & (state[8] ^ state[4]);
+	
+	// State I
 	assign next_state[8] = ~( | state[6:0]  ) & w & (state[8] ^ state[7]);
-	assign next_state[7] = ~( | state[8:7] | state[5:0] ) & w & state[6];
-	assign next_state[6] = ~( | state[8:6] | state[4:0] ) & w & state[5];
-	assign next_state[5] = ~( | state[8:7] ) & w & state[0];
-	assign next_state[4] = ~( | state[8:5] | state[2:0] | w ) & 
+
+	// State H 
+	assign next_state[7] = ~( | {state[8:7], state[5:0]} ) & w & state[6];
+
+	// State G 
+	assign next_state[6] = ~( | {state[8:6], state[4:0]} ) & w & state[5];
+
+	// State F 
+	assign next_state[5] = ~( | state[8:7] ) & w & state[0] +
+												(~( | state[8:2] | state[0] ) & w & state[1]) +  //B->F 
+												(~( | state[8:3] | state[1:0] ) & w & state[2]) +//C->F 
+												(~( | state[8:4] | state[2:0] ) & w & state[3]) +//D->F 
+												(~( | state[8:5] | state[3:0] ) & w & state[4]);  //E->F 
+	// State E 
+	assign next_state[4] = ~( | {state[8:5], state[2:0], w} ) & 
 													(state[4] ^ state[3]);
-	assign next_state[3] = ~( | state[8:3] | state[1:0] | w ) & state[2];
-	assign next_state[2] = ~( | state[8:2] | state[0] | w ) & state[1];
-	assign next_state[1] = ~( | state[8:1] | w ) & state[0]; 
-	assign next_state[0] = (~( | state[8:2] | state[0] ) & w & state[1]) + 
-													(~( | state[8:3] | state[1:0] ) & w & state[2]) + 
-													(~( | state[8:4] | state[2:0] ) & w & state[3]) + 
-													(~( | state[8:5] | state[3:0] ) & w & state[4]) + 
-													(~( | state[8:6] | state[4:0] | w ) & state[5]) + 
-													(~( | state[8:7] | state[5:0] | w ) & state[6]) + 
-													(~( | state[8] | state[6:0] | w ) & state[7]) + 
-													(~( | state[7:0] | w ) & state[8]); 
+	// State D 
+	assign next_state[3] = ~( | {state[8:3], state[1:0], w} ) & state[2];
+
+	// State C 
+	assign next_state[2] = ~( | {state[8:2], state[0], w} ) & state[1];
+
+	// State B 
+	assign next_state[1] = ~( | {state[8:1], w} ) & state[0];//A->B 
+												(~( | state[8:6] | state[4:0] | w ) & state[5]) +//F->B 
+												(~( | state[8:7] | state[5:0] | w ) & state[6]) +//G->B 
+												(~( | state[8] | state[6:0] | w ) & state[7]) + //H->B 
+												(~( | state[7:0] | w ) & state[8]); //I->B
+	//assign next_state[0] = 1'b1; /* Question 2 */
+	assign next_state[0] = 1'b1; /* Question 6 */
 
 endmodule

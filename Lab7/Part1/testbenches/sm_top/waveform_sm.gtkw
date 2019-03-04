@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Thu Nov  8 20:57:28 2018
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part1/testbenches/sm_top/state_machine.vcd"
+[dumpfile_mtime] "Thu Nov  8 20:56:32 2018"
+[dumpfile_size] 176987
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part1/testbenches/sm_top/waveform_sm.gtkw"
+[timestart] 0
+[size] 1569 1728
+[pos] 1567 0
+*-5.000000 61 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] state_machine_tb.
+[treeopen] state_machine_tb.dut.
+[sst_width] 280
+[signals_width] 151
+[sst_expanded] 1
+[sst_vpaned_height] 550
+@28
+state_machine_tb.clk
+@22
+state_machine_tb.leds[8:0]
+@28
+state_machine_tb.reset_n
+state_machine_tb.w
+state_machine_tb.z
+state_machine_tb.dut.slow_clk
+@24
+state_machine_tb.dut.count[25:0]
+@29
+state_machine_tb.dut.sm.clk
+[pattern_trace] 1
+[pattern_trace] 0
