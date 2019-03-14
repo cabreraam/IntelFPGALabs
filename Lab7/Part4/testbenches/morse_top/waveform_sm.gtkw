@@ -1,0 +1,69 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Thu Mar 14 17:30:54 2019
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part4/testbenches/morse_top/morse_top.vcd"
+[dumpfile_mtime] "Thu Mar 14 17:28:11 2019"
+[dumpfile_size] 102723
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part4/testbenches/morse_top/waveform_sm.gtkw"
+[timestart] 0
+[size] 2505 680
+[pos] -1 -1
+*-8.000000 1211 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] morse_top_tb.
+[treeopen] morse_top_tb.dut.
+[sst_width] 225
+[signals_width] 280
+[sst_expanded] 1
+[sst_vpaned_height] 188
+@200
+-DUT Top-Level
+@28
+morse_top_tb.clk
+morse_top_tb.ledr[1:0]
+morse_top_tb.switches[2:0]
+@200
+-DUT Internal
+@28
+morse_top_tb.dut.CLOCK_50
+@800028
+morse_top_tb.dut.KEY[1:0]
+@28
+(0)morse_top_tb.dut.KEY[1:0]
+(1)morse_top_tb.dut.KEY[1:0]
+@1001200
+-group_end
+@c00028
+morse_top_tb.dut.LEDR[1:0]
+@28
+(0)morse_top_tb.dut.LEDR[1:0]
+(1)morse_top_tb.dut.LEDR[1:0]
+@1401200
+-group_end
+@28
+morse_top_tb.dut.char_from_shift_reg
+@22
+morse_top_tb.dut.curr_state[4:0]
+morse_top_tb.dut.input_to_shift_reg[3:0]
+@28
+morse_top_tb.dut.key1_n
+morse_top_tb.dut.ltr_len_from_counter[2:0]
+morse_top_tb.dut.ltr_len_from_sel_logic[2:0]
+morse_top_tb.dut.morse_en
+morse_top_tb.dut.morse_ld
+morse_top_tb.dut.slow_clk_en
+@200
+-FSM
+@28
+morse_top_tb.dut.fsm.light_on
+@22
+morse_top_tb.dut.fsm.next_state[4:0]
+@28
+morse_top_tb.dut.fsm.morse_en
+morse_top_tb.dut.fsm.morse_ld
+morse_top_tb.dut.fsm.ltr_len_cnt[2:0]
+morse_top_tb.dut.fsm.ltr_len_cnt[2:0]
+@25
+morse_top_tb.dut.fsm.slow_clk_wire[24:0]
+[pattern_trace] 1
+[pattern_trace] 0

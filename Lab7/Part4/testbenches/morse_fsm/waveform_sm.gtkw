@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Wed Mar 13 16:38:18 2019
+[*]
+[dumpfile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part4/testbenches/morse_fsm/morse_fsm.vcd"
+[dumpfile_mtime] "Wed Mar 13 16:37:56 2019"
+[dumpfile_size] 101884
+[savefile] "/home/anthony/Research/IntelFPGALabs/Lab7/Part4/testbenches/morse_fsm/waveform_sm.gtkw"
+[timestart] 0
+[size] 2505 680
+[pos] 0 375
+*-7.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] morse_fsm_tb.
+[sst_width] 225
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 188
+@200
+-DUT Top-Level
+@28
+morse_fsm_tb.clk
+@22
+morse_fsm_tb.dut.curr_state[4:0]
+@28
+morse_fsm_tb.in_ltr[2:0]
+morse_fsm_tb.in_shift_reg
+morse_fsm_tb.ld_ltr
+morse_fsm_tb.light_on
+morse_fsm_tb.ltr_len_cnt[1:0]
+morse_fsm_tb.morse_en
+morse_fsm_tb.morse_ld
+morse_fsm_tb.reset_n
+morse_fsm_tb.slow_clk
+morse_fsm_tb.slow_clk_enable
+@200
+-DUT Internal
+@25
+morse_fsm_tb.dut.slow_clk_wire[24:0]
+[pattern_trace] 1
+[pattern_trace] 0
