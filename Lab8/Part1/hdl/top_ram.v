@@ -3,7 +3,7 @@ module top_ram(
 	input clk,
 	input [3:0] data,
 	input wr_en,
-	output q	
+	output [3:0] q	
 );
 
 	ram32x4 my_ram(
